@@ -1,0 +1,29 @@
+{
+  "name": "mail-service",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/WaifuForever/manga-reader",
+  "author": "Waifu_Forever",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "NODE_ENV=dev ts-node-dev --respawn --transpile-only --exit-child --watch src src/index.ts dotenv_config_path=./.env.dev",
+    "test": "NODE_ENV=test DOTENV_CONFIG_PATH=./.env.test jest --watch --runInBand",
+    "test:e2e": "NODE_ENV=test DOTENV_CONFIG_PATH=./.env.test jest --runInBand test/e2e/tests",
+    "test:unit": "NODE_ENV=test DOTENV_CONFIG_PATH=./.env.test jest --watch --runInBand test/unit/tests",
+    "dc:up": "sudo docker-compose --env-file .env.dev up",
+    "dc:down": "sudo docker-compose --env-file .env.dev down",
+    "dc:deepdown": "yarn dc:delete:volumes && yarn dc:delete:postgres",
+    "dc:stop": "sudo docker-compose --env-file .env.dev stop",
+    "dc:delete:volumes": "sudo docker-compose --env-file .env.dev down -v",
+    "dc:delete:postgres": "sudo rm -rf postgres"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "tabWidth": 4,
+    "bracketSpacing": true,
+    "proseWrap": "never",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "overrides": [
+      {
+        "files": "website/**/*.js",
+        "options": {
+          "trailingComma": "es5"
+        }
+      },
+      {
+        "files": ".yarnrc.yml",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+}
